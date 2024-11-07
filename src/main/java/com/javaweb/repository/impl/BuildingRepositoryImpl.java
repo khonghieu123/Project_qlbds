@@ -1,7 +1,6 @@
 package com.javaweb.repository.impl;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,9 +10,9 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-import com.javaweb.Ultis.ConectionJDBCUtil;
-import com.javaweb.Ultis.NumberUlti;
-import com.javaweb.Ultis.StringUlti;
+import com.javaweb.utils.ConectionJDBCUtil;
+import com.javaweb.utils.NumberUtil;
+import com.javaweb.utils.StringUtil;
 import com.javaweb.repository.BuildingRepository;
 import com.javaweb.repository.entity.BuildingEntity;
 @Repository
@@ -39,7 +38,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 		for (Map.Entry<String, Object> it : param.entrySet()) {
 			if(!it.getKey().equals("staffid") && !it.getKey().equals("typeCode") && !it.getKey().startsWith("area")  && !it.getKey().startsWith("rentPice")) {
 				String value = it.getValue().toString();
-				if(NumberUlti.checkNumber(value) == true){ 
+				if(NumberUtil.checkNumber(value) == true){ 
 						where.append(" AND b." + it.getKey() + " = " + value);
 				}
 				else { 
@@ -51,13 +50,13 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 	
 	public static void joinQueryspecial(Map<String, Object> param, List<String> typeCode, StringBuilder where){
 		  String staffid = param.get("staffid") != null ? param.get("staffid").toString() : "";
-		if(StringUlti.checkString(staffid)) {
+		if(StringUtil.checkString(staffid)) {
 			where.append( " AND  assignmentbuilding.staffid = " + staffid );
 		}
 		 String rentPriceTo = param.get("rentPriceTo") != null ? param.get("rentPriceTo").toString() : "";
 		 String rentPriceFrom = param.get("rentPriceFrom") != null ? param.get("rentPriceFrom").toString() : "";
 		    
-		if(StringUlti.checkString(rentPriceTo) ||StringUlti.checkString(rentPriceFrom)) {
+		if(StringUtil.checkString(rentPriceTo) ||StringUtil.checkString(rentPriceFrom)) {
 			where.append(" AND b.rentprice >=" + rentPriceFrom);
 			where.append(" AND b.rentprice <= " + rentPriceTo);
 		}
@@ -65,8 +64,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 		 String rentAreaTo = param.get("rentAreaTo") != null ? param.get("rentAreaTo").toString() : "";
 		 String rentAreaFrom = param.get("rentAreaFrom") != null ? param.get("rentAreaFrom").toString() : "";
 		    
-		
-		if(StringUlti.checkString(rentAreaTo) ||StringUlti.checkString(rentAreaFrom)) {
+		if(StringUtil.checkString(rentAreaTo) ||StringUtil.checkString(rentAreaFrom)) {
 			where.append(" AND rentarea.value >=" + rentAreaFrom);
 			where.append(" AND rentarea.value <= " + rentAreaTo);
 		}
@@ -93,7 +91,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 		where.append(" GROUP BY b.id ");
 		sql.append(where);
 		List<BuildingEntity> result = new ArrayList<>();
-		try(Connection conn =ConectionJDBCUtil.getConection();
+		try(Connection conn = ConectionJDBCUtil.getConnection();
 				Statement stmt = conn.createStatement(); 
 				ResultSet rs = stmt.executeQuery(sql.toString());
 				){

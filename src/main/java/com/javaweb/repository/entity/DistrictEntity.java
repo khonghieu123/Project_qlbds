@@ -1,6 +1,6 @@
 package com.javaweb.repository.entity;
 
-public class DistricEntity {
+public class DistrictEntity {
 	private Long id;
 	private String code, name;
 	public Long getId() {
