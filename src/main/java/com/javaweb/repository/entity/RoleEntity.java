@@ -5,51 +5,59 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name ="district")
-public class DistrictEntity {
+@Table(name = "role")
+public class RoleEntity {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	private Long id;
 	
-	@Column(name ="code")
+	@Column(name = "name", nullable = false)
+	private String name;
+
+	@Column(name = "code", nullable = false, unique = true)
 	private String code;
 	
-	@Column(name ="name")
-	private String name;
+	@OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
+	private List<UserRoleEntity> userRoleEntities = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "district" )
-	private List<BuildingEntity> items = new ArrayList<>();
+	@ManyToMany(mappedBy = "roles")
+	private List<UserEntity> users = new ArrayList<>();
+
 	
-	public List<BuildingEntity> getItems() {
-		return items;
-	}
-	public void setItems(List<BuildingEntity> items) {
-		this.items = items;
-	}
+	
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+
 }

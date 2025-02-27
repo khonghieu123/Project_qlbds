@@ -1,4 +1,4 @@
-package com.javaweb.repository.impl;
+package com.javaweb.repository.custom.IMPL;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
