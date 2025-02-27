@@ -17,21 +17,14 @@ import java.util.stream.Collectors;
 
 @Component
 public class BuildingDTOConverter {
-
-    @Autowired
-    private DistricRepository districtRepository;
-
-    @Autowired
-    private RentAreaRepository rentAreaRepository;
-    
     @Autowired
     private ModelMapper modelMapper;
     
     public BuildingDTO toBuildingDTO(BuildingEntity item) {
         BuildingDTO building = modelMapper.map(item, BuildingDTO.class);
-        DistrictEntity districtEntity = districtRepository.findNameById(item.getId());
-        building.setAddress(item.getStreet() + ", " + item.getWard() + ", " + districtEntity.getName());
-        List<RentAreaEntity> rentAreas = rentAreaRepository.getValueByBuildingId(item.getId());
+        DistrictEntity districtEntity = item.getDistrict();
+        building.setAddress(item.getStreet() + ", " + item.getWard() + ", " + item.getDistrict().getName());
+        List<RentAreaEntity> rentAreas = item.getItems();
         String areaResult = rentAreas.stream()
                 .map(it -> it.getValue().toString())
                 .collect(Collectors.joining(","));

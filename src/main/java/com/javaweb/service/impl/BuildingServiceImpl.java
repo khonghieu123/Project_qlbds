@@ -29,11 +29,11 @@ public  class BuildingServiceImpl implements BuildingService{
 	private BuildingSearchBuilderConverter  buildingSearchBuilderConverter;
 	
 	@Override
-	public List<BuildingDTO> findALL(Map<String, Object> param, List<String> typeCode) {  
+	public List<BuildingDTO> findAll(Map<String, Object> param, List<String> typeCode) {  
 		
 		 BuildingSearchBuilder  buildingSearchBuilder =  buildingSearchBuilderConverter.toBuildingSearchBuilder(param, typeCode);
 		
-		List<BuildingEntity> buildingEntityes = buildingRepository.findALL(buildingSearchBuilder);
+		List<BuildingEntity> buildingEntityes = buildingRepository.findAll(buildingSearchBuilder);
 		List<BuildingDTO> result = new ArrayList<BuildingDTO>();
 		for(BuildingEntity item : buildingEntityes) {
 			BuildingDTO buiding = buildingDTOConverter.toBuildingDTO(item);
