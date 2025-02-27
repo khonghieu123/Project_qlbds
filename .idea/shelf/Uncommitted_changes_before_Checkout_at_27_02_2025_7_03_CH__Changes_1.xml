@@ -1,0 +1,60 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]1" date="1740657808926" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 27/02/2025 7:03 CH [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/javaweb/repository/entity/DistrictEntity.class" />
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/repository/entity/DistrictEntity.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]1/DistrictEntity.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/javaweb/converter/BuildingDTOConverter.class" />
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/converter/BuildingDTOConverter.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]1/BuildingDTOConverter.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/repository/entity/UserEntity.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]1/UserEntity.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/model/BuildingRequestDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]1/BuildingRequestDTO.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/javaweb/api/BuildingAPI.class" />
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/api/BuildingAPI.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]1/BuildingAPI.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/javaweb/service/BuildingService.class" />
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/service/BuildingService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]1/BuildingService.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/javaweb/repository/entity/RentAreaEntity.class" />
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/repository/entity/RentAreaEntity.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]1/RentAreaEntity.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/javaweb/repository/entity/BuildingEntity.class" />
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/repository/entity/BuildingEntity.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]1/BuildingEntity.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/repository/entity/UserRoleEntity.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]1/UserRoleEntity.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/javaweb/repository/BuildingRepository.class" />
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/repository/BuildingRepository.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]1/BuildingRepository.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/javaweb/service/impl/BuildingServiceImpl.class" />
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/service/impl/BuildingServiceImpl.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]1/BuildingServiceImpl.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/repository/entity/RoleEntity.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]1/RoleEntity.class" />
+  </binary>
+</changelist>

@@ -1,0 +1,1047 @@
+Index: src/main/java/com/javaweb/service/impl/BuildingServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.javaweb.service.impl;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Map;\r\n\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport com.javaweb.builder.BuildingSearchBuilder;\r\nimport com.javaweb.converter.BuildingDTOConverter;\r\nimport com.javaweb.converter.BuildingSearchBuilderConverter;\r\nimport com.javaweb.model.BuildingDTO;\r\nimport com.javaweb.repository.BuildingRepository;\r\nimport com.javaweb.repository.entity.BuildingEntity;\r\nimport com.javaweb.service.BuildingService;\r\n\r\n\r\n@Service\r\npublic  class BuildingServiceImpl implements BuildingService{\r\n\t\r\n\t@Autowired\r\n\tprivate BuildingRepository buildingRepository;\r\n\t\r\n\t@Autowired \r\n\tprivate BuildingDTOConverter buildingDTOConverter;\r\n\t\r\n\t@Autowired \r\n\tprivate BuildingSearchBuilderConverter  buildingSearchBuilderConverter;\r\n\t\r\n\t@Override\r\n\tpublic List<BuildingDTO> findALL(Map<String, Object> param, List<String> typeCode) {  \r\n\t\t\r\n\t\t BuildingSearchBuilder  buildingSearchBuilder =  buildingSearchBuilderConverter.toBuildingSearchBuilder(param, typeCode);\r\n\t\t\r\n\t\tList<BuildingEntity> buildingEntityes = buildingRepository.findALL(buildingSearchBuilder);\r\n\t\tList<BuildingDTO> result = new ArrayList<BuildingDTO>();\r\n\t\tfor(BuildingEntity item : buildingEntityes) {\r\n\t\t\tBuildingDTO buiding = buildingDTOConverter.toBuildingDTO(item);\r\n\t\t\tresult.add(buiding);\r\n\t\t}\r\n\t\treturn result;\r\n\t}\r\n\t\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/javaweb/service/impl/BuildingServiceImpl.java b/src/main/java/com/javaweb/service/impl/BuildingServiceImpl.java
+--- a/src/main/java/com/javaweb/service/impl/BuildingServiceImpl.java	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/src/main/java/com/javaweb/service/impl/BuildingServiceImpl.java	(date 1740479849699)
+@@ -29,16 +29,16 @@
+ 	private BuildingSearchBuilderConverter  buildingSearchBuilderConverter;
+ 	
+ 	@Override
+-	public List<BuildingDTO> findALL(Map<String, Object> param, List<String> typeCode) {  
++	public List<BuildingDTO> findAll(Map<String, Object> param, List<String> typeCode) {  
+ 		
+-		 BuildingSearchBuilder  buildingSearchBuilder =  buildingSearchBuilderConverter.toBuildingSearchBuilder(param, typeCode);
++		BuildingSearchBuilder  buildingSearchBuilder =  buildingSearchBuilderConverter.toBuildingSearchBuilder(param, typeCode);
+ 		
+ 		List<BuildingEntity> buildingEntityes = buildingRepository.findALL(buildingSearchBuilder);
+ 		List<BuildingDTO> result = new ArrayList<BuildingDTO>();
+-		for(BuildingEntity item : buildingEntityes) {
+-			BuildingDTO buiding = buildingDTOConverter.toBuildingDTO(item);
+-			result.add(buiding);
+-		}
++//		for(BuildingEntity item : buildingEntityes) {
++//			BuildingDTO buiding = buildingDTOConverter.toBuildingDTO(item);
++//			result.add(buiding);
++//		}
+ 		return result;
+ 	}
+ 	
+Index: src/main/java/com/javaweb/repository/impl/DistricRepository.java
+===================================================================
+diff --git a/src/main/java/com/javaweb/repository/impl/DistricRepository.java b/src/main/java/com/javaweb/repository/DistricRepository.java
+rename from src/main/java/com/javaweb/repository/impl/DistricRepository.java
+rename to src/main/java/com/javaweb/repository/DistricRepository.java
+--- a/src/main/java/com/javaweb/repository/impl/DistricRepository.java	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/src/main/java/com/javaweb/repository/DistricRepository.java	(date 1740251812623)
+@@ -1,7 +1,11 @@
+-package com.javaweb.repository.impl;
++package com.javaweb.repository;
++
++import org.springframework.stereotype.Repository;
+ 
+ import com.javaweb.repository.entity.DistrictEntity;
+ 
++
++@Repository
+ public interface DistricRepository {
+ 	DistrictEntity findNameById(Long id);
+ }
+Index: target/classes/application-uat.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/target/classes/application-uat.properties b/target/classes/application-uat.properties
+new file mode 100644
+--- /dev/null	(date 1740589791457)
++++ b/target/classes/application-uat.properties	(date 1740589791457)
+@@ -0,0 +1,3 @@
++spring.datasource.url =jdbc:mysql://localhost:3306/quanly_sinhvien
++spring.datasource.username =root
++spring.datasource.password =07082004
+Index: src/main/resources/application-uat.properties
+===================================================================
+diff --git a/src/main/resources/application-uat.properties b/src/main/resources/application-uat.properties
+new file mode 100644
+--- /dev/null	(date 1740254450227)
++++ b/src/main/resources/application-uat.properties	(date 1740254450227)
+@@ -0,0 +1,3 @@
++spring.datasource.url =jdbc:mysql://localhost:3306/quanly_sinhvien
++spring.datasource.username =root
++spring.datasource.password =07082004
+Index: target/classes/META-INF/maven/com.javaweb/string-boot/pom.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Generated by Maven Integration for Eclipse\r\n#Fri Nov 08 15:37:29 ICT 2024\r\nartifactId=string-boot\r\ngroupId=com.javaweb\r\nm2e.projectLocation=D\\:\\\\Project_qlbds\r\nm2e.projectName=string-boot\r\nversion=0.1.0\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/target/classes/META-INF/maven/com.javaweb/string-boot/pom.properties b/target/classes/META-INF/maven/com.javaweb/string-boot/pom.properties
+--- a/target/classes/META-INF/maven/com.javaweb/string-boot/pom.properties	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/target/classes/META-INF/maven/com.javaweb/string-boot/pom.properties	(date 1740589792391)
+@@ -1,5 +1,5 @@
+ #Generated by Maven Integration for Eclipse
+-#Fri Nov 08 15:37:29 ICT 2024
++#Thu Feb 27 00:09:52 ICT 2025
+ artifactId=string-boot
+ groupId=com.javaweb
+ m2e.projectLocation=D\:\\Project_qlbds
+Index: src/main/java/com/javaweb/repository/impl/RentAreaRepositoryImpl.java
+===================================================================
+diff --git a/src/main/java/com/javaweb/repository/impl/RentAreaRepositoryImpl.java b/src/main/java/com/javaweb/repository/custom/Impl/RentAreaRepositoryImpl.java
+rename from src/main/java/com/javaweb/repository/impl/RentAreaRepositoryImpl.java
+rename to src/main/java/com/javaweb/repository/custom/Impl/RentAreaRepositoryImpl.java
+--- a/src/main/java/com/javaweb/repository/impl/RentAreaRepositoryImpl.java	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/src/main/java/com/javaweb/repository/custom/Impl/RentAreaRepositoryImpl.java	(date 1740589787034)
+@@ -1,44 +1,44 @@
+-package com.javaweb.repository.impl;
+-
+-import java.sql.Connection;
+-import java.sql.PreparedStatement;
+-import java.sql.ResultSet;
+-import java.sql.SQLException;
+-import java.sql.Statement;
+-import java.util.ArrayList;
+-import java.util.List;
+-
+-import org.springframework.beans.factory.annotation.Autowired;
+-import org.springframework.stereotype.Repository;
+-
+-import com.javaweb.repository.RentAreaRepository;
+-import com.javaweb.repository.entity.BuildingEntity;
+-import com.javaweb.repository.entity.RentAreaEntity;
+-import com.javaweb.utils.ConectionJDBCUtil;
+-
+-@Repository
+-public class RentAreaRepositoryImpl implements RentAreaRepository {
+-
+-    @Override
+-    public List<RentAreaEntity> getValueByBuildingId(Long id) {
+-        String sql = "SELECT * FROM rentarea WHERE rentarea.buildingid =" + id;
+-        List<RentAreaEntity> rentAreas = new ArrayList<>();
+-        
+-        try(Connection conn = ConectionJDBCUtil.getConnection();
+-        		Statement stmt = conn.createStatement(); 
+-        		ResultSet rs = stmt.executeQuery(sql);
+-        		){
+-        	while(rs.next()) {
+-        		 RentAreaEntity rentArea = new RentAreaEntity();
+-        		 rentArea.setValue(rs.getString("value")); 
+-                 rentAreas.add(rentArea);
+- 
+-        	}
+-        	
+-        }catch(SQLException e) {
+-        	e.printStackTrace();
+-        }
+-        
+-        return rentAreas;
+-    }
+-}
++//package com.javaweb.repository.custom.Impl;
++//
++//import java.sql.Connection;
++//import java.sql.PreparedStatement;
++//import java.sql.ResultSet;
++//import java.sql.SQLException;
++//import java.sql.Statement;
++//import java.util.ArrayList;
++//import java.util.List;
++//
++//import org.springframework.beans.factory.annotation.Autowired;
++//import org.springframework.stereotype.Repository;
++//
++//import com.javaweb.repository.RentAreaRepository;
++//import com.javaweb.repository.entity.BuildingEntity;
++//import com.javaweb.repository.entity.RentAreaEntity;
++//import com.javaweb.utils.ConectionJDBCUtil;
++//
++//@Repository
++//public class RentAreaRepositoryImpl implements RentAreaRepository {
++//
++//    @Override
++//    public List<RentAreaEntity> getValueByBuildingId(Long id) {
++//        String sql = "SELECT * FROM rentarea WHERE rentarea.buildingid =" + id;
++//        List<RentAreaEntity> rentAreas = new ArrayList<>();
++//        
++//        try(Connection conn = ConectionJDBCUtil.getConnection();
++//        		Statement stmt = conn.createStatement(); 
++//        		ResultSet rs = stmt.executeQuery(sql);
++//        		){
++//        	while(rs.next()) {
++//        		 RentAreaEntity rentArea = new RentAreaEntity();
++//        		 rentArea.setValue(rs.getString("value")); 
++//                 rentAreas.add(rentArea);
++// 
++//        	}
++//        	
++//        }catch(SQLException e) {
++//        	e.printStackTrace();
++//        }
++//        
++//        return rentAreas;
++//    }
++//}
+Index: src/main/java/com/javaweb/repository/impl/BuildingRepositoryImpl.java
+===================================================================
+diff --git a/src/main/java/com/javaweb/repository/impl/BuildingRepositoryImpl.java b/src/main/java/com/javaweb/repository/custom/Impl/BuildingRepositoryImpl.java
+rename from src/main/java/com/javaweb/repository/impl/BuildingRepositoryImpl.java
+rename to src/main/java/com/javaweb/repository/custom/Impl/BuildingRepositoryImpl.java
+--- a/src/main/java/com/javaweb/repository/impl/BuildingRepositoryImpl.java	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/src/main/java/com/javaweb/repository/custom/Impl/BuildingRepositoryImpl.java	(date 1740480278290)
+@@ -1,7 +1,8 @@
+-package com.javaweb.repository.impl;
++package com.javaweb.repository.custom.Impl;
+ 
+ import java.lang.reflect.Field;
+ import java.sql.Connection;
++import java.sql.DriverManager;
+ import java.sql.ResultSet;
+ import java.sql.SQLException;
+ import java.sql.Statement;
+@@ -12,16 +13,38 @@
+ import java.util.stream.Collector;
+ import java.util.stream.Collectors;
+ 
++import javax.persistence.EntityManager;
++import javax.persistence.PersistenceContext;
++
++import org.springframework.beans.factory.annotation.Value;
++import org.springframework.context.annotation.PropertySource;
+ import org.springframework.stereotype.Repository;
+ 
+ import com.javaweb.utils.ConectionJDBCUtil;
+ import com.javaweb.utils.NumberUtil;
+ import com.javaweb.utils.StringUtil;
++import javax.persistence.*;
+ import com.javaweb.builder.BuildingSearchBuilder;
+ import com.javaweb.repository.BuildingRepository;
++import com.javaweb.repository.custom.BuildingRepositoryCustom;
+ import com.javaweb.repository.entity.BuildingEntity;
+ @Repository
+-public class BuildingRepositoryImpl implements BuildingRepository {
++
++public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
++	
++	@Value("${spring.datasource.url}")
++	private String DB_URL;
++
++	@Value("${spring.datasource.username}")
++	private String USER;
++
++	@Value("${spring.datasource.password}")
++	private String PASS;
++	
++	@PersistenceContext
++	private EntityManager entitymanager;
++
++	
+ 	public static void joinTable(BuildingSearchBuilder buildingSearchBuilder, StringBuilder sql) {
+ 		Long staffid = buildingSearchBuilder.getStaffId();
+ 		if(staffid != null){
+@@ -110,39 +133,16 @@
+ 	
+ 	
+ 	public List<BuildingEntity> findALL(BuildingSearchBuilder buildingSearchBuilder){
+-		StringBuilder sql = new StringBuilder("SELECT b.id, b.name, b.districtid, b.street, b.ward,"
+-				     + "b.numberofbasement, b.managername, b.managerphonenumber, b.floorarea, b.rentprice, b.servicefee,b.brokeragefee FROM building b ");
++		StringBuilder sql = new StringBuilder("SELECT b.* FROM building b ");
+ 		StringBuilder where = new StringBuilder(" WHERE 1 = 1 ");
+ 		joinTable(buildingSearchBuilder, sql);
+ 		joinQueryNormal(buildingSearchBuilder,where);
+ 		joinQueryspecial(buildingSearchBuilder, where);
+ 		where.append(" GROUP BY b.id ");
+ 		sql.append(where);
+-		List<BuildingEntity> result = new ArrayList<>();
+-		try(Connection conn = ConectionJDBCUtil.getConnection();
+-				Statement stmt = conn.createStatement(); 
+-				ResultSet rs = stmt.executeQuery(sql.toString());
+-				){
+-			while(rs.next()) {
+-				 BuildingEntity buildingEntity = new BuildingEntity();
+-				    buildingEntity.setId(rs.getLong("b.id"));
+-				    buildingEntity.setName(rs.getString("b.name"));
+-				    buildingEntity.setWard(rs.getString("b.ward"));
+-				    buildingEntity.setDistrictid(rs.getLong("b.districtid"));
+-				    buildingEntity.setStreet(rs.getString("b.street"));
+-				    buildingEntity.setFloorArea(rs.getLong("b.floorarea"));
+-				    buildingEntity.setRentPrice(rs.getLong("b.rentprice"));
+-				    buildingEntity.setServiceFee(rs.getString("b.servicefee"));
+-				    buildingEntity.setBrokerageFee(rs.getLong("b.brokeragefee"));
+-				    buildingEntity.setManagerName(rs.getString("b.managername"));
+-				    buildingEntity.setManagerPhoneNumber(rs.getString("b.managerphonenumber"));
+-				    result.add(buildingEntity);
+-				
+-			}
+-			
+-		}catch(SQLException e) {
+-			e.printStackTrace();
+-		}
+-		return result;
++		Query query = entitymanager.createNativeQuery(sql.toString(), BuildingEntity.class);
++		
++		return query.getResultList();
++		
+ 	}
+ }
+Index: src/main/java/com/javaweb/repository/entity/RoleEntity.java
+===================================================================
+diff --git a/src/main/java/com/javaweb/repository/entity/RoleEntity.java b/src/main/java/com/javaweb/repository/entity/RoleEntity.java
+new file mode 100644
+--- /dev/null	(date 1740164105385)
++++ b/src/main/java/com/javaweb/repository/entity/RoleEntity.java	(date 1740164105385)
+@@ -0,0 +1,74 @@
++package com.javaweb.repository.entity;
++
++import java.util.ArrayList;
++import java.util.List;
++
++import javax.persistence.Column;
++import javax.persistence.Entity;
++import javax.persistence.FetchType;
++import javax.persistence.GeneratedValue;
++import javax.persistence.GenerationType;
++import javax.persistence.Id;
++import javax.persistence.JoinColumn;
++import javax.persistence.JoinTable;
++import javax.persistence.ManyToMany;
++import javax.persistence.OneToMany;
++import javax.persistence.Table;
++
++@Entity
++@Table(name = "role")
++public class RoleEntity {
++	
++	@Id
++	@GeneratedValue(strategy = GenerationType.IDENTITY)
++	private Long id;
++	
++	@Column(name = "name", nullable = false)
++	private String name;
++
++	public List<UserEntity> getUsers() {
++		return users;
++	}
++
++	public void setUsers(List<UserEntity> users) {
++		this.users = users;
++	}
++
++	@Column(name = "code", nullable = false, unique = true)
++	private String code;
++	
++//	@OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
++//	private List<UserRoleEntity> userRoleEntities = new ArrayList<>();
++	
++	@ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
++	private List<UserEntity> users = new ArrayList<>();
++	
++	
++	
++	
++	public Long getId() {
++		return id;
++	}
++
++	public void setId(Long id) {
++		this.id = id;
++	}
++
++	public String getName() {
++		return name;
++	}
++
++	public void setName(String name) {
++		this.name = name;
++	}
++
++	public String getCode() {
++		return code;
++	}
++
++	public void setCode(String code) {
++		this.code = code;
++	}
++
++
++}
+Index: target/classes/application-pro.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/target/classes/application-pro.properties b/target/classes/application-pro.properties
+new file mode 100644
+--- /dev/null	(date 1740589791455)
++++ b/target/classes/application-pro.properties	(date 1740589791455)
+@@ -0,0 +1,3 @@
++spring.datasource.url = jdbc:mysql://localhost:3306/carweb
++spring.datasource.username = root
++spring.datasource.password = 07082004
+\ No newline at end of file
+Index: src/main/java/com/javaweb/repository/custom/Impl/DistricRepositoryImpl.java
+===================================================================
+diff --git a/src/main/java/com/javaweb/repository/custom/Impl/DistricRepositoryImpl.java b/src/main/java/com/javaweb/repository/custom/Impl/DistricRepositoryImpl.java
+new file mode 100644
+--- /dev/null	(date 1740475448801)
++++ b/src/main/java/com/javaweb/repository/custom/Impl/DistricRepositoryImpl.java	(date 1740475448801)
+@@ -0,0 +1,44 @@
++package com.javaweb.repository.custom.Impl;
++//
++//import java.sql.Connection;
++//
++//import java.sql.ResultSet;
++//import java.sql.SQLException;
++//import java.sql.Statement;
++//
++//import org.springframework.stereotype.Repository;
++//
++//import com.javaweb.repository.entity.DistrictEntity;
++//import com.javaweb.utils.ConectionJDBCUtil;
++//
++//@Repository
++//public class DistricRepositoryImpl implements DistricRepository {
++//	@Override
++//	public DistrictEntity findNameById(Long id) {
++//		String sql = "SELECT d.name FROM  district d WHERE d.id=" + id;
++//		
++//		DistrictEntity districEntity = new DistrictEntity();
++//		
++//		try(Connection conn = ConectionJDBCUtil.getConnection();
++//				Statement stmt = conn.createStatement();
++//				ResultSet rs = stmt.executeQuery(sql);
++//				){
++//			while(rs.next()) {
++//				districEntity.setName(rs.getString("Name"));
++//			}
++//		}catch(SQLException e) {
++//			e.printStackTrace();
++//		}
++//		return districEntity;
++//		
++//	}
++//	
++//}
++//
++
++
++
++
++
++
++
+Index: src/main/java/com/javaweb/repository/entity/UserEntity.java
+===================================================================
+diff --git a/src/main/java/com/javaweb/repository/entity/UserEntity.java b/src/main/java/com/javaweb/repository/entity/UserEntity.java
+new file mode 100644
+--- /dev/null	(date 1740164364347)
++++ b/src/main/java/com/javaweb/repository/entity/UserEntity.java	(date 1740164364347)
+@@ -0,0 +1,116 @@
++package com.javaweb.repository.entity;
++
++import java.util.ArrayList;
++import java.util.List;
++
++import javax.persistence.Column;
++import javax.persistence.Entity;
++import javax.persistence.FetchType;
++import javax.persistence.GeneratedValue;
++import javax.persistence.GenerationType;
++import javax.persistence.Id;
++import javax.persistence.JoinColumn;
++import javax.persistence.JoinTable;
++import javax.persistence.ManyToMany;
++import javax.persistence.OneToMany;
++import javax.persistence.Table;
++
++@Entity
++@Table(name = "user")
++public class UserEntity {
++	
++	@Id
++	@GeneratedValue(strategy = GenerationType.IDENTITY)
++	private Long id;
++	
++	@Column(name = "username", nullable = false, unique = true)
++	private String userName;
++	
++	
++	@Column(name = "password", nullable = false)
++	private String password;
++	
++	@Column(name = "fullname")
++	private String fullName;
++	
++	@Column(name = "email", nullable = false)
++	private String email;
++	
++//	public List<UserRoleEntity> getUserRoleEntities() {
++//		return userRoleEntities;
++//	}
++//
++//	public void setUserRoleEntities(List<UserRoleEntity> userRoleEntities) {
++//		this.userRoleEntities = userRoleEntities;
++//	}
++
++	@Column(name = "status", nullable = false)
++	private String status;
++	
++//	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
++//	private List<UserRoleEntity> userRoleEntities = new ArrayList<>();
++	
++	@ManyToMany(fetch = FetchType.LAZY)
++	@JoinTable(name = "user_role",
++			joinColumns = @JoinColumn(name = "userid", nullable = false),
++			inverseJoinColumns = @JoinColumn(name = "roleid", nullable = false))
++	private List<RoleEntity> roles = new ArrayList<>();
++	
++	
++	public List<RoleEntity> getRoles() {
++		return roles;
++	}
++
++	public void setRoles(List<RoleEntity> roles) {
++		this.roles = roles;
++	}
++
++	public Long getId() {
++		return id;
++	}
++
++	public void setId(Long id) {
++		this.id = id;
++	}
++
++	public String getUserName() {
++		return userName;
++	}
++
++	public void setUserName(String userName) {
++		this.userName = userName;
++	}
++
++	public String getPassword() {
++		return password;
++	}
++
++	public void setPassword(String password) {
++		this.password = password;
++	}
++
++	public String getFullName() {
++		return fullName;
++	}
++
++	public void setFullName(String fullName) {
++		this.fullName = fullName;
++	}
++
++	public String getEmail() {
++		return email;
++	}
++
++	public void setEmail(String email) {
++		this.email = email;
++	}
++
++	public String getStatus() {
++		return status;
++	}
++
++	public void setStatus(String status) {
++		this.status = status;
++	}
++
++}
+Index: src/main/java/com/javaweb/model/BuildingRequestDTO.java
+===================================================================
+diff --git a/src/main/java/com/javaweb/model/BuildingRequestDTO.java b/src/main/java/com/javaweb/model/BuildingRequestDTO.java
+new file mode 100644
+--- /dev/null	(date 1740471357714)
++++ b/src/main/java/com/javaweb/model/BuildingRequestDTO.java	(date 1740471357714)
+@@ -0,0 +1,46 @@
++package com.javaweb.model;
++
++public class BuildingRequestDTO {
++	private Long id;
++	public Long getId() {
++		return id;
++	}
++	public void setId(Long id) {
++		this.id = id;
++	}
++	private String name;
++	private String ward;
++	private String street;
++	private Long districtId;
++	private Long rentprice;
++	public String getName() {
++		return name;
++	}
++	public void setName(String name) {
++		this.name = name;
++	}
++	public String getWard() {
++		return ward;
++	}
++	public void setWard(String ward) {
++		this.ward = ward;
++	}
++	public String getStreet() {
++		return street;
++	}
++	public void setStreet(String street) {
++		this.street = street;
++	}
++	public Long getDistrictId() {
++		return districtId;
++	}
++	public void setDistrictId(Long districtId) {
++		this.districtId = districtId;
++	}
++	public Long getRentprice() {
++		return rentprice;
++	}
++	public void setRentprice(Long rentprice) {
++		this.rentprice = rentprice;
++	}
++}
+Index: src/main/resources/application-pro.properties
+===================================================================
+diff --git a/src/main/resources/application-pro.properties b/src/main/resources/application-pro.properties
+new file mode 100644
+--- /dev/null	(date 1739614334729)
++++ b/src/main/resources/application-pro.properties	(date 1739614334729)
+@@ -0,0 +1,3 @@
++spring.datasource.url = jdbc:mysql://localhost:3306/carweb
++spring.datasource.username = root
++spring.datasource.password = 07082004
+\ No newline at end of file
+Index: src/main/java/com/javaweb/repository/entity/UserRoleEntity.java
+===================================================================
+diff --git a/src/main/java/com/javaweb/repository/entity/UserRoleEntity.java b/src/main/java/com/javaweb/repository/entity/UserRoleEntity.java
+new file mode 100644
+--- /dev/null	(date 1740135884725)
++++ b/src/main/java/com/javaweb/repository/entity/UserRoleEntity.java	(date 1740135884725)
+@@ -0,0 +1,57 @@
++package com.javaweb.repository.entity;
++
++import javax.persistence.Entity;
++import javax.persistence.GeneratedValue;
++import javax.persistence.GenerationType;
++import javax.persistence.Id;
++import javax.persistence.JoinColumn;
++import javax.persistence.ManyToOne;
++import javax.persistence.Table;
++
++@Entity
++@Table(name = "user_role")
++
++
++public class UserRoleEntity {
++	
++	@Id
++	@GeneratedValue(strategy = GenerationType.IDENTITY)
++	private Long id;
++	
++	
++
++	@ManyToOne
++	@JoinColumn(name = "userid")
++	private UserEntity user;
++	
++	@ManyToOne
++	@JoinColumn(name = "roleid")
++	private RoleEntity role;
++	
++	
++	public Long getId() {
++		return id;
++	}
++
++	public void setId(Long id) {
++		this.id = id;
++	}
++
++	public UserEntity getUser() {
++		return user;
++	}
++
++	public void setUser(UserEntity user) {
++		this.user = user;
++	}
++
++	public RoleEntity getRole() {
++		return role;
++	}
++
++	public void setRole(RoleEntity role) {
++		this.role = role;
++	}
++
++	
++}
+Index: target/classes/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>server.port=8081\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/target/classes/application.properties b/target/classes/application.properties
+--- a/target/classes/application.properties	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/target/classes/application.properties	(date 1740589791475)
+@@ -1,1 +1,21 @@
+ server.port=8081
++
++#spring.datasource.url =jdbc:mysql://localhost:3306/estatebasic
++#spring.datasource.username =root
++#spring.datasource.password =07082004
++
++spring.jpa.hibernate.ddl-auto=none
++#spring.jpa.hibernate.ddl-auto=create
++#spring.jpa.hibernate.ddl-auto=update
++#spring.jpa.hibernate.ddl-auto=create-drop
++
++
++spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL55Dialect
++spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true
++
++spring.jpa.show-sql=true
++spring.jpa.properties.hibernate.format_sql=true
++
++
++dev=khong_minh_hieu
++spring.profiles.active=uat
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n    <groupId>com.javaweb</groupId>\r\n    <artifactId>string-boot</artifactId>\r\n    <version>0.1.0</version>\r\n    <parent>\r\n        <groupId>org.springframework.boot</groupId>\r\n        <artifactId>spring-boot-starter-parent</artifactId>\r\n        <version>2.7.18</version> \r\n    </parent>\r\n    <properties>\r\n        <java.version>17</java.version>\r\n    </properties>\r\n    <dependencies>\r\n        <dependency>\r\n            <groupId>org.springframework.boot</groupId>\r\n            <artifactId>spring-boot-starter-web</artifactId>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>mysql</groupId>\r\n            <artifactId>mysql-connector-java</artifactId>\r\n            <version>8.0.30</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.springframework.boot</groupId>\r\n            <artifactId>spring-boot-starter-actuator</artifactId>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->\r\n\t\t<dependency>\r\n\t\t    <groupId>org.modelmapper</groupId>\r\n\t\t    <artifactId>modelmapper</artifactId>\r\n\t\t    <version>3.2.1</version>\r\n\t\t</dependency>\r\n\r\n    </dependencies>\r\n</project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/pom.xml	(date 1740069656565)
+@@ -6,10 +6,10 @@
+     <artifactId>string-boot</artifactId>
+     <version>0.1.0</version>
+     <parent>
+-        <groupId>org.springframework.boot</groupId>
+-        <artifactId>spring-boot-starter-parent</artifactId>
+-        <version>2.7.18</version> 
+-    </parent>
++	    <groupId>org.springframework.boot</groupId>
++	    <artifactId>spring-boot-starter-parent</artifactId>
++	    <version>2.7.17</version>
++	</parent>
+     <properties>
+         <java.version>17</java.version>
+     </properties>
+@@ -27,12 +27,16 @@
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-actuator</artifactId>
+         </dependency>
+-        <!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
+ 		<dependency>
+ 		    <groupId>org.modelmapper</groupId>
+ 		    <artifactId>modelmapper</artifactId>
+ 		    <version>3.2.1</version>
+ 		</dependency>
++		<dependency>
++		    <groupId>org.springframework.boot</groupId>
++		    <artifactId>spring-boot-starter-data-jpa</artifactId>
++		    <version>2.7.17</version>
++		</dependency>
+ 
+     </dependencies>
+-</project>
++</project>  
+\ No newline at end of file
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>server.port=8081\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+--- a/src/main/resources/application.properties	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/src/main/resources/application.properties	(date 1740223095402)
+@@ -1,1 +1,21 @@
+ server.port=8081
++
++#spring.datasource.url =jdbc:mysql://localhost:3306/estatebasic
++#spring.datasource.username =root
++#spring.datasource.password =07082004
++
++spring.jpa.hibernate.ddl-auto=none
++#spring.jpa.hibernate.ddl-auto=create
++#spring.jpa.hibernate.ddl-auto=update
++#spring.jpa.hibernate.ddl-auto=create-drop
++
++
++spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL55Dialect
++spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true
++
++spring.jpa.show-sql=true
++spring.jpa.properties.hibernate.format_sql=true
++
++
++dev=khong_minh_hieu
++spring.profiles.active=uat
+Index: src/main/java/com/javaweb/api/BuildingAPI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.javaweb.api;\r\n\r\nimport org.springframework.web.bind.annotation.DeleteMapping;\r\nimport org.springframework.web.bind.annotation.GetMapping;\r\nimport org.springframework.web.bind.annotation.PathVariable;\r\nimport org.springframework.web.bind.annotation.PostMapping;\r\nimport org.springframework.web.bind.annotation.RequestBody;\r\n\r\nimport java.nio.file.FileAlreadyExistsException;\r\nimport java.sql.Connection;\r\nimport java.sql.DriverManager;\r\nimport java.sql.ResultSet;\r\nimport java.sql.SQLException;\r\nimport java.sql.Statement;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Map;\r\n\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.stereotype.Controller;\r\nimport org.springframework.web.bind.annotation.RestController;\r\n\r\nimport com.javaweb.model.BuildingDTO;\r\nimport com.javaweb.model.ErrorResponseDTO;\r\nimport com.javaweb.repository.entity.BuildingEntity;\r\nimport com.javaweb.service.BuildingService;\r\n\r\nimport customexception.FieldRequireException;\r\n\r\nimport org.springframework.web.bind.annotation.RequestMapping;\r\nimport org.springframework.web.bind.annotation.RequestMethod;\r\nimport org.springframework.web.bind.annotation.RequestParam;\r\n\r\n@RestController\r\npublic class BuildingAPI {\r\n\t@Autowired\r\n\tprivate BuildingService buildingService;\r\n\t@GetMapping(value = \"/api/building\")\r\n\tpublic List<BuildingDTO> getBuilding(@RequestParam Map<String, Object> param,\r\n\t\t\t                           @RequestParam(name =\"typeCode\", required = false) List<String> typeCode){\r\n\t\tList<BuildingDTO> result = buildingService.findALL(param, typeCode);\r\n\t\treturn result;\r\n\t}\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/javaweb/api/BuildingAPI.java b/src/main/java/com/javaweb/api/BuildingAPI.java
+--- a/src/main/java/com/javaweb/api/BuildingAPI.java	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/src/main/java/com/javaweb/api/BuildingAPI.java	(date 1740479179257)
+@@ -4,6 +4,7 @@
+ import org.springframework.web.bind.annotation.GetMapping;
+ import org.springframework.web.bind.annotation.PathVariable;
+ import org.springframework.web.bind.annotation.PostMapping;
++import org.springframework.web.bind.annotation.PutMapping;
+ import org.springframework.web.bind.annotation.RequestBody;
+ 
+ import java.nio.file.FileAlreadyExistsException;
+@@ -16,13 +17,22 @@
+ import java.util.List;
+ import java.util.Map;
+ 
++import javax.persistence.EntityManager;
++import javax.persistence.PersistenceContext;
++import javax.transaction.Transactional;
++
+ import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.beans.factory.annotation.Value;
++import org.springframework.context.annotation.PropertySource;
+ import org.springframework.stereotype.Controller;
+ import org.springframework.web.bind.annotation.RestController;
+ 
+ import com.javaweb.model.BuildingDTO;
++import com.javaweb.model.BuildingRequestDTO;
+ import com.javaweb.model.ErrorResponseDTO;
++import com.javaweb.repository.BuildingRepository;
+ import com.javaweb.repository.entity.BuildingEntity;
++import com.javaweb.repository.entity.DistrictEntity;
+ import com.javaweb.service.BuildingService;
+ 
+ import customexception.FieldRequireException;
+@@ -32,14 +42,73 @@
+ import org.springframework.web.bind.annotation.RequestParam;
+ 
+ @RestController
++@PropertySource("classpath:application.properties")
++@Transactional
+ public class BuildingAPI {
+ 	@Autowired
+ 	private BuildingService buildingService;
+-	@GetMapping(value = "/api/building")
++	
++	@Value("${dev}")
++	private String data;
++	
++	@PersistenceContext
++	private EntityManager entitymanager;
++	
++	
++	@Autowired
++	private BuildingRepository buildingRepository;
++	
++	@GetMapping(value = "/api/building/")
+ 	public List<BuildingDTO> getBuilding(@RequestParam Map<String, Object> param,
+ 			                           @RequestParam(name ="typeCode", required = false) List<String> typeCode){
+-		List<BuildingDTO> result = buildingService.findALL(param, typeCode);
++		List<BuildingDTO> result = buildingService.findAll(param, typeCode);
+ 		return result;
+ 	}
++	
++	@GetMapping(value = "/api/building/{name}/{street}")
++	public BuildingDTO getBuildingById(@PathVariable String name, @PathVariable String street){
++		BuildingDTO result = new BuildingDTO();
++		List<BuildingEntity> building = buildingRepository.findByNameContainingAndStreet(name, street);
++		return result;
++	}
++	
++	
++//	@DeleteMapping(value ="/api/building/{id}")
++//	public void deleteBuiling(@PathVariable Integer id) {
++//		System.out.print(data);
++//	}
++//	
++	@PostMapping(value ="/api/building/")
++	public void creatBuilding(@RequestBody BuildingRequestDTO buildingRequestDTO) {
++		BuildingEntity builEntity = new BuildingEntity();
++		builEntity.setName(buildingRequestDTO.getName());
++		builEntity.setStreet(buildingRequestDTO.getStreet());
++		builEntity.setWard(buildingRequestDTO.getWard());
++		DistrictEntity districEntity = new DistrictEntity();
++		districEntity.setId(buildingRequestDTO.getDistrictId());
++		builEntity.setDistrict(districEntity);
++		entitymanager.persist(builEntity); // thêm 1 entity mới vào database
++		System.out.print("ok");
++	}
++	
++	@PutMapping(value ="/api/building/")
++	public void updateBuilding(@RequestBody BuildingRequestDTO buildingRequestDTO) {
++		BuildingEntity builEntity = buildingRepository.findById(buildingRequestDTO.getId()).get();
++		
++		builEntity.setName(buildingRequestDTO.getName());
++		builEntity.setStreet(buildingRequestDTO.getStreet());
++		builEntity.setWard(buildingRequestDTO.getWard());
++		DistrictEntity districEntity = new DistrictEntity();
++		districEntity.setId(buildingRequestDTO.getDistrictId());
++		builEntity.setDistrict(districEntity);
++//		entitymanager.merge(builEntity); // update trong database
++		buildingRepository.save(builEntity);
++		System.out.print("ok");
++	}
++	@DeleteMapping("/api/building/{ids}")
++	public void deleteBuilding(@PathVariable Long[] ids) {
++	   buildingRepository.deleteByIdIn(ids);// xóa theo 1 list danh sách
++	}
+ 
++
+ }
+Index: src/main/java/com/javaweb/service/BuildingService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.javaweb.service;\r\n\r\nimport java.util.List;\r\nimport java.util.Map;\r\n\r\nimport com.javaweb.model.BuildingDTO;\r\nimport com.javaweb.repository.entity.BuildingEntity;\r\n\r\npublic interface BuildingService {\r\n\tList<BuildingDTO> findALL(Map<String, Object> param, List<String> typeCode);\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/javaweb/service/BuildingService.java b/src/main/java/com/javaweb/service/BuildingService.java
+--- a/src/main/java/com/javaweb/service/BuildingService.java	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/src/main/java/com/javaweb/service/BuildingService.java	(date 1740252884066)
+@@ -7,5 +7,5 @@
+ import com.javaweb.repository.entity.BuildingEntity;
+ 
+ public interface BuildingService {
+-	List<BuildingDTO> findALL(Map<String, Object> param, List<String> typeCode);
++	List<BuildingDTO> findAll(Map<String, Object> param, List<String> typeCode);
+ }
+Index: src/main/java/com/javaweb/utils/ConectionJDBCUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.javaweb.utils;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.DriverManager;\r\nimport java.sql.SQLException;\r\n\r\n\r\npublic class ConectionJDBCUtil {\r\n\tstatic final String DB_URL = \"jdbc:mysql://localhost:3306/estatebasic\";\r\n\tstatic final String USER = \"root\";\r\n\tstatic final String PASS = \"07082004\";\r\n\t\r\n\tpublic static Connection getConnection() {\r\n\t\tConnection conn = null;\r\n\t\ttry {\r\n\t\t\tconn = DriverManager.getConnection(DB_URL,USER,PASS);\r\n\t\t}catch(SQLException e ) {\r\n\t\t\te.printStackTrace();\r\n\t\t}\r\n\t\treturn conn;\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/javaweb/utils/ConectionJDBCUtil.java b/src/main/java/com/javaweb/utils/ConectionJDBCUtil.java
+--- a/src/main/java/com/javaweb/utils/ConectionJDBCUtil.java	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/src/main/java/com/javaweb/utils/ConectionJDBCUtil.java	(date 1740077200027)
+@@ -19,4 +19,4 @@
+ 		}
+ 		return conn;
+ 	}
+-}
++}
+\ No newline at end of file
+Index: src/main/java/com/javaweb/repository/BuildingRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.javaweb.repository;\r\n\r\nimport java.util.*;\r\n\r\nimport com.javaweb.builder.BuildingSearchBuilder;\r\nimport com.javaweb.repository.entity.BuildingEntity;\r\n\r\npublic interface BuildingRepository {\r\n\tList<BuildingEntity> findALL(BuildingSearchBuilder buildingSearchBuilder);\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/javaweb/repository/BuildingRepository.java b/src/main/java/com/javaweb/repository/BuildingRepository.java
+--- a/src/main/java/com/javaweb/repository/BuildingRepository.java	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/src/main/java/com/javaweb/repository/BuildingRepository.java	(date 1740479179481)
+@@ -2,9 +2,15 @@
+ 
+ import java.util.*;
+ 
++import org.springframework.data.jpa.repository.JpaRepository;
++
+ import com.javaweb.builder.BuildingSearchBuilder;
++import com.javaweb.repository.custom.BuildingRepositoryCustom;
+ import com.javaweb.repository.entity.BuildingEntity;
+ 
+-public interface BuildingRepository {
+-	List<BuildingEntity> findALL(BuildingSearchBuilder buildingSearchBuilder);
++public interface BuildingRepository extends JpaRepository<BuildingEntity, Long>, BuildingRepositoryCustom {
++	void deleteByIdIn(Long[] ids);
++	
++	List<BuildingEntity> findByNameContaining(String s);
++	List<BuildingEntity> findByNameContainingAndStreet(String s, String street);
+ }
+Index: src/main/java/com/javaweb/converter/BuildingDTOConverter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.javaweb.converter;\r\n\r\nimport org.springframework.stereotype.Component;\r\nimport org.springframework.ui.ModelMap;\r\n\r\nimport com.javaweb.model.BuildingDTO;\r\nimport com.javaweb.repository.RentAreaRepository;\r\nimport com.javaweb.repository.entity.BuildingEntity;\r\nimport com.javaweb.repository.entity.DistrictEntity;\r\nimport com.javaweb.repository.entity.RentAreaEntity;\r\nimport com.javaweb.repository.impl.DistricRepository;\r\n\r\nimport org.modelmapper.ModelMapper;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport java.util.List;\r\nimport java.util.stream.Collectors;\r\n\r\n@Component\r\npublic class BuildingDTOConverter {\r\n\r\n    @Autowired\r\n    private DistricRepository districtRepository;\r\n\r\n    @Autowired\r\n    private RentAreaRepository rentAreaRepository;\r\n    \r\n    @Autowired\r\n    private ModelMapper modelMapper;\r\n    \r\n    public BuildingDTO toBuildingDTO(BuildingEntity item) {\r\n        BuildingDTO building = modelMapper.map(item, BuildingDTO.class);\r\n        DistrictEntity districtEntity = districtRepository.findNameById(item.getId());\r\n        building.setAddress(item.getStreet() + \", \" + item.getWard() + \", \" + districtEntity.getName());\r\n        List<RentAreaEntity> rentAreas = rentAreaRepository.getValueByBuildingId(item.getId());\r\n        String areaResult = rentAreas.stream()\r\n                .map(it -> it.getValue().toString())\r\n                .collect(Collectors.joining(\",\"));\r\n\r\n        building.setRentArea(areaResult);\r\n        return building;\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/javaweb/converter/BuildingDTOConverter.java b/src/main/java/com/javaweb/converter/BuildingDTOConverter.java
+--- a/src/main/java/com/javaweb/converter/BuildingDTOConverter.java	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/src/main/java/com/javaweb/converter/BuildingDTOConverter.java	(date 1740251812576)
+@@ -4,11 +4,11 @@
+ import org.springframework.ui.ModelMap;
+ 
+ import com.javaweb.model.BuildingDTO;
++import com.javaweb.repository.DistricRepository;
+ import com.javaweb.repository.RentAreaRepository;
+ import com.javaweb.repository.entity.BuildingEntity;
+ import com.javaweb.repository.entity.DistrictEntity;
+ import com.javaweb.repository.entity.RentAreaEntity;
+-import com.javaweb.repository.impl.DistricRepository;
+ 
+ import org.modelmapper.ModelMapper;
+ import org.springframework.beans.factory.annotation.Autowired;
+@@ -17,24 +17,15 @@
+ 
+ @Component
+ public class BuildingDTOConverter {
+-
+-    @Autowired
+-    private DistricRepository districtRepository;
+-
+-    @Autowired
+-    private RentAreaRepository rentAreaRepository;
+-    
+     @Autowired
+     private ModelMapper modelMapper;
+     
+     public BuildingDTO toBuildingDTO(BuildingEntity item) {
+         BuildingDTO building = modelMapper.map(item, BuildingDTO.class);
+-        DistrictEntity districtEntity = districtRepository.findNameById(item.getId());
+-        building.setAddress(item.getStreet() + ", " + item.getWard() + ", " + districtEntity.getName());
+-        List<RentAreaEntity> rentAreas = rentAreaRepository.getValueByBuildingId(item.getId());
+-        String areaResult = rentAreas.stream()
+-                .map(it -> it.getValue().toString())
+-                .collect(Collectors.joining(","));
++        DistrictEntity districtEntity = item.getDistrict();
++        building.setAddress(item.getStreet() + ", " + item.getWard() + ", " + item.getDistrict().getName());
++        List<RentAreaEntity> rentAreas = item.getItems();
++        String areaResult = rentAreas.stream().map(it -> it.getValue().toString()).collect(Collectors.joining(","));
+ 
+         building.setRentArea(areaResult);
+         return building;
+Index: src/main/java/com/javaweb/builder/BuildingSearchBuilder.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.javaweb.builder;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class BuildingSearchBuilder {\r\n    private String name;\r\n    private Long floorArea;\r\n    private String ward;\r\n    private String street;\r\n    private String districtid;\r\n    private Integer numberOfBasement;\r\n    private List<String> typeCode = new ArrayList<>();\r\n    private String managerName;\r\n    private String managerPhoneNumber;\r\n    private Long rentPriceFrom;\r\n    private Long rentPriceTo;\r\n    private Long areaFrom;\r\n    private Long areaTo;\r\n    private Long staffId;\r\n    \r\n    private BuildingSearchBuilder(Builder builder) { \r\n    \tthis.name = builder.name;\r\n    \tthis.floorArea = builder.floorArea; \r\n    \tthis.ward = builder.ward; \r\n    \tthis.street = builder.street;\r\n    \tthis.districtid = builder.districtid;\r\n    \tthis.numberOfBasement = builder.numberOfBasement;\r\n    \tthis.typeCode = builder.typeCode; \r\n    \tthis.managerName = builder.managerName; \r\n    \tthis.managerPhoneNumber = builder.managerPhoneNumber;\r\n    \tthis.rentPriceFrom = builder.rentPriceFrom;\r\n    \tthis.rentPriceTo = builder.rentPriceTo; \r\n    \tthis.areaFrom = builder.areaFrom; \r\n    \tthis.areaTo = builder.areaTo; \r\n    \tthis.staffId = builder.staffId;\r\n\t }\r\n    \r\n\tpublic String getName() {\r\n\t\treturn name;\r\n\t}\r\n\tpublic Long getFloorArea() {\r\n\t\treturn floorArea;\r\n\t}\r\n\tpublic String getWard() {\r\n\t\treturn ward;\r\n\t}\r\n\tpublic String getStreet() {\r\n\t\treturn street;\r\n\t}\r\n\tpublic String getDistrictid() {\r\n\t\treturn districtid;\r\n\t}\r\n\tpublic Integer getNumberOfBasement() {\r\n\t\treturn numberOfBasement;\r\n\t}\r\n\tpublic List<String> getTypeCode() {\r\n\t\treturn typeCode;\r\n\t}\r\n\tpublic String getManagerName() {\r\n\t\treturn managerName;\r\n\t}\r\n\tpublic String getManagerPhoneNumber() {\r\n\t\treturn managerPhoneNumber;\r\n\t}\r\n\tpublic Long getRentPriceFrom() {\r\n\t\treturn rentPriceFrom;\r\n\t}\r\n\tpublic Long getRentPriceTo() {\r\n\t\treturn rentPriceTo;\r\n\t}\r\n\tpublic Long getAreaFrom() {\r\n\t\treturn areaFrom;\r\n\t}\r\n\tpublic Long getAreaTo() {\r\n\t\treturn areaTo;\r\n\t}\r\n\tpublic Long getStaffId() {\r\n\t\treturn staffId;\r\n\t}\r\n    public static class Builder {\r\n\t    private String name;\r\n\t    private Long floorArea;\r\n\t    private String ward;\r\n\t    private String street;\r\n\t    private String districtid;\r\n\t    private Integer numberOfBasement;\r\n\t    private List<String> typeCode = new ArrayList<>();\r\n\t    private String managerName;\r\n\t    private String managerPhoneNumber;\r\n\t    private Long rentPriceFrom;\r\n\t    private Long rentPriceTo;\r\n\t    private Long areaFrom;\r\n\t    private Long areaTo;\r\n\t    private Long staffId;\r\n\t    public Builder setName(String name) {\r\n            this.name = name;\r\n            return this;\r\n        }\r\n\r\n        public Builder setFloorArea(Long floorArea) {\r\n            this.floorArea = floorArea;\r\n            return this;\r\n        }\r\n\r\n        public Builder setWard(String ward) {\r\n            this.ward = ward;\r\n            return this;\r\n        }\r\n\r\n        public Builder setStreet(String street) {\r\n            this.street = street;\r\n            return this;\r\n        }\r\n\r\n        public Builder setDistrictid(String districtid) {\r\n            this.districtid= districtid;\r\n            return this;\r\n        }\r\n\r\n        public Builder setNumberOfBasement(Integer numberOfBasement) {\r\n            this.numberOfBasement = numberOfBasement;\r\n            return this;\r\n        }\r\n\r\n        public Builder setTypeCode(List<String> typeCode) {\r\n            this.typeCode = typeCode;\r\n            return this;\r\n        }\r\n\r\n        public Builder setManagerName(String managerName) {\r\n            this.managerName = managerName;\r\n            return this;\r\n        }\r\n\r\n        public Builder setManagerPhoneNumber(String managerPhoneNumber) {\r\n            this.managerPhoneNumber = managerPhoneNumber;\r\n            return this;\r\n        }\r\n\r\n        public Builder setRentPriceFrom(Long rentPriceFrom) {\r\n            this.rentPriceFrom = rentPriceFrom;\r\n            return this;\r\n        }\r\n\r\n        public Builder setRentPriceTo(Long rentPriceTo) {\r\n            this.rentPriceTo = rentPriceTo;\r\n            return this;\r\n        }\r\n\r\n        public Builder setAreaFrom(Long areaFrom) {\r\n            this.areaFrom = areaFrom;\r\n            return this;\r\n        }\r\n\r\n        public Builder setAreaTo(Long areaTo) {\r\n            this.areaTo = areaTo;\r\n            return this;\r\n        }\r\n\r\n        public Builder setStaffId(Long staffId) {\r\n            this.staffId = staffId;\r\n            return this;\r\n        }\r\n\r\n        public BuildingSearchBuilder build() {\r\n            return new BuildingSearchBuilder(this);\r\n        }\r\n   }\r\n\r\n\r\n\r\n    \r\n    \r\n}\r\n\r\n
+===================================================================
+diff --git a/src/main/java/com/javaweb/builder/BuildingSearchBuilder.java b/src/main/java/com/javaweb/builder/BuildingSearchBuilder.java
+--- a/src/main/java/com/javaweb/builder/BuildingSearchBuilder.java	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/src/main/java/com/javaweb/builder/BuildingSearchBuilder.java	(date 1736266423808)
+@@ -167,10 +167,5 @@
+             return new BuildingSearchBuilder(this);
+         }
+    }
+-
+-
+-
+-    
+-    
+ }
+ 

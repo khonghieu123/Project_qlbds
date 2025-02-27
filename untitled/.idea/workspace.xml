@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e931fc91-c40f-4661-8c0d-f3c589171f21" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/model/BuildingRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/custom/Impl/DistricRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/entity/RoleEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/entity/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/entity/UserRoleEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/resources/application-pro.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/resources/application-uat.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../target/classes/application-pro.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../target/classes/application-uat.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../target/classes/com/javaweb/model/BuildingRequestDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/entity/RoleEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/entity/UserEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/entity/UserRoleEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/javaweb/api/BuildingAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/api/BuildingAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/javaweb/builder/BuildingSearchBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/builder/BuildingSearchBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/javaweb/converter/BuildingDTOConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/converter/BuildingDTOConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/BuildingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/BuildingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/entity/BuildingEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/entity/BuildingEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/entity/DistrictEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/entity/DistrictEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/entity/RentAreaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/entity/RentAreaEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/impl/BuildingRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/custom/Impl/BuildingRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/impl/DistricRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/DistricRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/impl/DistricRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/impl/RentAreaRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/repository/custom/Impl/RentAreaRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/javaweb/service/BuildingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/service/BuildingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/javaweb/service/impl/BuildingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/service/impl/BuildingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/javaweb/utils/ConectionJDBCUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/javaweb/utils/ConectionJDBCUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/META-INF/maven/com.javaweb/string-boot/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/META-INF/maven/com.javaweb/string-boot/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/META-INF/maven/com.javaweb/string-boot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/META-INF/maven/com.javaweb/string-boot/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/javaweb/api/BuildingAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/javaweb/api/BuildingAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/javaweb/converter/BuildingDTOConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/javaweb/converter/BuildingDTOConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/BuildingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/BuildingRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/entity/BuildingEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/entity/BuildingEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/entity/DistrictEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/entity/DistrictEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/entity/RentAreaEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/entity/RentAreaEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/impl/BuildingRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/impl/DistricRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/impl/DistricRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/javaweb/repository/impl/RentAreaRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/javaweb/service/BuildingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/javaweb/service/BuildingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/javaweb/service/impl/BuildingServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/javaweb/service/impl/BuildingServiceImpl.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="JPA" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2tcfbY5DmD1eiPtb2lkhbVH5jVa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;JPA&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Project_qlbds&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/Project_qlbds/untitled/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e931fc91-c40f-4661-8c0d-f3c589171f21" name="Changes" comment="" />
+      <created>1740656357511</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740656357511</updated>
+      <workItem from="1740656359324" duration="698000" />
+      <workItem from="1740657087991" duration="327000" />
+      <workItem from="1740657430883" duration="141000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

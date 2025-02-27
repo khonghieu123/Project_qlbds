@@ -1,0 +1,334 @@
+Index: src/main/java/com/javaweb/repository/impl/DistricRepositoryImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/javaweb/repository/impl/DistricRepositoryImpl.java b/src/main/java/com/javaweb/repository/impl/DistricRepositoryImpl.java
+deleted file mode 100644
+--- a/src/main/java/com/javaweb/repository/impl/DistricRepositoryImpl.java	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ /dev/null	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
+@@ -1,36 +0,0 @@
+-package com.javaweb.repository.impl;
+-
+-import java.sql.Connection;
+-
+-import java.sql.ResultSet;
+-import java.sql.SQLException;
+-import java.sql.Statement;
+-
+-import org.springframework.stereotype.Repository;
+-
+-import com.javaweb.repository.entity.DistrictEntity;
+-import com.javaweb.utils.ConectionJDBCUtil;
+-
+-@Repository
+-public class DistricRepositoryImpl implements DistricRepository {
+-	@Override
+-	public DistrictEntity findNameById(Long id) {
+-		String sql = "SELECT d.name FROM  district d WHERE d.id=" + id;
+-		
+-		DistrictEntity districEntity = new DistrictEntity();
+-		
+-		try(Connection conn = ConectionJDBCUtil.getConnection();
+-				Statement stmt = conn.createStatement();
+-				ResultSet rs = stmt.executeQuery(sql);
+-				){
+-			while(rs.next()) {
+-				districEntity.setName(rs.getString("Name"));
+-			}
+-		}catch(SQLException e) {
+-			e.printStackTrace();
+-		}
+-		return districEntity;
+-		
+-	}
+-	
+-}
+Index: target/classes/META-INF/maven/com.javaweb/string-boot/pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n    <groupId>com.javaweb</groupId>\r\n    <artifactId>string-boot</artifactId>\r\n    <version>0.1.0</version>\r\n    <parent>\r\n        <groupId>org.springframework.boot</groupId>\r\n        <artifactId>spring-boot-starter-parent</artifactId>\r\n        <version>2.7.18</version> \r\n    </parent>\r\n    <properties>\r\n        <java.version>17</java.version>\r\n    </properties>\r\n    <dependencies>\r\n        <dependency>\r\n            <groupId>org.springframework.boot</groupId>\r\n            <artifactId>spring-boot-starter-web</artifactId>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>mysql</groupId>\r\n            <artifactId>mysql-connector-java</artifactId>\r\n            <version>8.0.30</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.springframework.boot</groupId>\r\n            <artifactId>spring-boot-starter-actuator</artifactId>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->\r\n\t\t<dependency>\r\n\t\t    <groupId>org.modelmapper</groupId>\r\n\t\t    <artifactId>modelmapper</artifactId>\r\n\t\t    <version>3.2.1</version>\r\n\t\t</dependency>\r\n\r\n    </dependencies>\r\n</project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/classes/META-INF/maven/com.javaweb/string-boot/pom.xml b/target/classes/META-INF/maven/com.javaweb/string-boot/pom.xml
+--- a/target/classes/META-INF/maven/com.javaweb/string-boot/pom.xml	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/target/classes/META-INF/maven/com.javaweb/string-boot/pom.xml	(date 1740589792394)
+@@ -6,10 +6,10 @@
+     <artifactId>string-boot</artifactId>
+     <version>0.1.0</version>
+     <parent>
+-        <groupId>org.springframework.boot</groupId>
+-        <artifactId>spring-boot-starter-parent</artifactId>
+-        <version>2.7.18</version> 
+-    </parent>
++	    <groupId>org.springframework.boot</groupId>
++	    <artifactId>spring-boot-starter-parent</artifactId>
++	    <version>2.7.17</version>
++	</parent>
+     <properties>
+         <java.version>17</java.version>
+     </properties>
+@@ -27,12 +27,16 @@
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-actuator</artifactId>
+         </dependency>
+-        <!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
+ 		<dependency>
+ 		    <groupId>org.modelmapper</groupId>
+ 		    <artifactId>modelmapper</artifactId>
+ 		    <version>3.2.1</version>
+ 		</dependency>
++		<dependency>
++		    <groupId>org.springframework.boot</groupId>
++		    <artifactId>spring-boot-starter-data-jpa</artifactId>
++		    <version>2.7.17</version>
++		</dependency>
+ 
+     </dependencies>
+-</project>
++</project>  
+\ No newline at end of file
+Index: src/main/java/com/javaweb/repository/entity/DistrictEntity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.javaweb.repository.entity;\r\n\r\npublic class DistrictEntity {\r\n\tprivate Long id;\r\n\tprivate String code, name;\r\n\tpublic Long getId() {\r\n\t\treturn id;\r\n\t}\r\n\tpublic void setId(Long id) {\r\n\t\tthis.id = id;\r\n\t}\r\n\tpublic String getCode() {\r\n\t\treturn code;\r\n\t}\r\n\tpublic void setCode(String code) {\r\n\t\tthis.code = code;\r\n\t}\r\n\tpublic String getName() {\r\n\t\treturn name;\r\n\t}\r\n\tpublic void setName(String name) {\r\n\t\tthis.name = name;\r\n\t}\r\n\t\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/javaweb/repository/entity/DistrictEntity.java b/src/main/java/com/javaweb/repository/entity/DistrictEntity.java
+--- a/src/main/java/com/javaweb/repository/entity/DistrictEntity.java	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/src/main/java/com/javaweb/repository/entity/DistrictEntity.java	(date 1740052989372)
+@@ -1,11 +1,34 @@
+ package com.javaweb.repository.entity;
+ 
++import javax.persistence.Column;
++import javax.persistence.Entity;
++import javax.persistence.FetchType;
++import javax.persistence.GeneratedValue;
++import javax.persistence.GenerationType;
++import javax.persistence.Id;
++import javax.persistence.OneToMany;
++import javax.persistence.Table;
++
++@Entity
++@Table(name = "district")
+ public class DistrictEntity {
+-	private Long id;
+-	private String code, name;
++	
++	@Id 
++	@GeneratedValue(strategy = GenerationType.IDENTITY)
++    private Long id;
++	
++	
++	@Column(name = "code")
++	private String code;
++	
++	@Column(name = "name")
++	private String name;
++	
++	@OneToMany(mappedBy = "district", fetch =FetchType.LAZY)
+ 	public Long getId() {
+ 		return id;
+ 	}
++	
+ 	public void setId(Long id) {
+ 		this.id = id;
+ 	}
+Index: src/main/java/com/javaweb/repository/entity/BuildingEntity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.javaweb.repository.entity;\r\npublic class BuildingEntity {\r\n    private Long id;\r\n    private String createdDate;\r\n    private String name;\r\n    private String ward;\r\n    private String street;\r\n    private Long districtid;\r\n    private String managerName;\r\n    private String managerPhoneNumber;\r\n    private Long floorArea;\r\n    private String serviceFee;\r\n    private Long rentPrice;\r\n    private Long brokerageFee;\r\n    private String emptyArea;\r\n\r\n    public String getName() {\r\n        return name;\r\n    }\r\n\r\n    public void setName(String name) {\r\n        this.name = name;\r\n    }\r\n\r\n    public Long getId() {\r\n        return id;\r\n    }\r\n\r\n    public void setId(Long id) {\r\n        this.id = id;\r\n    }\r\n\r\n    public Long getDistrictid() {\r\n        return districtid;\r\n    }\r\n\r\n    public void setDistrictid(Long districtid) {\r\n        this.districtid = districtid;\r\n    }\r\n\r\n    public String getWard() {\r\n        return ward;\r\n    }\r\n\r\n    public void setWard(String ward) {\r\n        this.ward = ward;\r\n    }\r\n\r\n    public String getStreet() {\r\n        return street;\r\n    }\r\n\r\n    public void setStreet(String street) {\r\n        this.street = street;\r\n    }\r\n\r\n    public Long getFloorArea() {\r\n        return floorArea;\r\n    }\r\n\r\n    public void setFloorArea(Long floorArea) {\r\n        this.floorArea = floorArea;\r\n    }\r\n\r\n    public String getServiceFee() {\r\n        return serviceFee;\r\n    }\r\n\r\n    public void setServiceFee(String serviceFee) {\r\n        this.serviceFee = serviceFee;\r\n    }\r\n\r\n    public Long getRentPrice() {\r\n        return rentPrice;\r\n    }\r\n\r\n    public void setRentPrice(Long rentPrice) {\r\n        this.rentPrice = rentPrice;\r\n    }\r\n\r\n    public Long getBrokerageFee() {\r\n        return brokerageFee;\r\n    }\r\n\r\n    public void setBrokerageFee(Long brokerageFee) {\r\n        this.brokerageFee = brokerageFee;\r\n    }\r\n\r\n    public String getManagerName() {\r\n        return managerName;\r\n    }\r\n\r\n    public void setManagerName(String managerName) {\r\n        this.managerName = managerName;\r\n    }\r\n\r\n    public String getManagerPhoneNumber() {\r\n        return managerPhoneNumber;\r\n    }\r\n\r\n    public void setManagerPhoneNumber(String managerPhoneNumber) {\r\n        this.managerPhoneNumber = managerPhoneNumber;\r\n    }\r\n\r\n\tpublic String getCreatedDate() {\r\n\t\treturn createdDate;\r\n\t}\r\n\r\n\tpublic void setCreatedDate(String createdDate) {\r\n\t\tthis.createdDate = createdDate;\r\n\t}\r\n\r\n\tpublic String getEmptyArea() {\r\n\t\treturn emptyArea;\r\n\t}\r\n\r\n\tpublic void setEmptyArea(String emptyArea) {\r\n\t\tthis.emptyArea = emptyArea;\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/javaweb/repository/entity/BuildingEntity.java b/src/main/java/com/javaweb/repository/entity/BuildingEntity.java
+--- a/src/main/java/com/javaweb/repository/entity/BuildingEntity.java	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/src/main/java/com/javaweb/repository/entity/BuildingEntity.java	(date 1740140195088)
+@@ -1,20 +1,83 @@
+ package com.javaweb.repository.entity;
++
++import java.util.ArrayList;
++import java.util.List;
++
++import javax.persistence.Column;
++import javax.persistence.Entity;
++import javax.persistence.FetchType;
++import javax.persistence.GeneratedValue;
++import javax.persistence.GenerationType;
++import javax.persistence.Id;
++import javax.persistence.JoinColumn;
++import javax.persistence.ManyToOne;
++import javax.persistence.OneToMany;
++import javax.persistence.Table;
++
++@Entity
++@Table(name = "Building")
+ public class BuildingEntity {
++	
++	@Id
++	@GeneratedValue(strategy = GenerationType.IDENTITY)
+     private Long id;
+-    private String createdDate;
++    
++    @Column(name = "name")
+     private String name;
++    
++    @Column(name = "createddate")
++    private String createdDate;
++    
++    @Column(name = "ward")
+     private String ward;
++    
++    @Column(name = "street")
+     private String street;
+-    private Long districtid;
++    
++    @Column(name ="managername")
+     private String managerName;
++    
++    @Column(name ="managerphonenumber")
+     private String managerPhoneNumber;
++    
++    @Column(name ="floorarea")
+     private Long floorArea;
++    
++    @Column(name ="servicefee")
+     private String serviceFee;
++    
++    @Column(name ="rentprice")
+     private Long rentPrice;
++    
++    @Column(name ="brokeragefee")
+     private Long brokerageFee;
+-    private String emptyArea;
++    
++
++    
++    @ManyToOne
++    @JoinColumn(name = "districtid")
++    private DistrictEntity district;
++
++    public DistrictEntity getDistrict() {
++		return district;
++	}
++    
++    @OneToMany(mappedBy = "building",fetch = FetchType.LAZY)
++    private List<RentAreaEntity> items = new ArrayList<>();
++
++	public List<RentAreaEntity> getItems() {
++		return items;
++	}
++
++	public void setItems(List<RentAreaEntity> items) {
++		this.items = items;
++	}
++
++	public void setDistrict(DistrictEntity district) {
++		this.district = district;
++	}
+ 
+-    public String getName() {
++	public String getName() {
+         return name;
+     }
+ 
+@@ -30,13 +93,13 @@
+         this.id = id;
+     }
+ 
+-    public Long getDistrictid() {
+-        return districtid;
+-    }
+-
+-    public void setDistrictid(Long districtid) {
+-        this.districtid = districtid;
+-    }
++//    public Long getDistrictid() {
++//        return districtid;
++//    }
++//
++//    public void setDistrictid(Long districtid) {
++//        this.districtid = districtid;
++//    }
+ 
+     public String getWard() {
+         return ward;
+@@ -110,11 +173,11 @@
+ 		this.createdDate = createdDate;
+ 	}
+ 
+-	public String getEmptyArea() {
+-		return emptyArea;
+-	}
+-
+-	public void setEmptyArea(String emptyArea) {
+-		this.emptyArea = emptyArea;
+-	}
++//	public String getEmptyArea() {
++//		return emptyArea;
++//	}
++//
++//	public void setEmptyArea(String emptyArea) {
++//		this.emptyArea = emptyArea;
++//	}
+ }
+Index: src/main/java/com/javaweb/repository/entity/RentAreaEntity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.javaweb.repository.entity;\r\n\r\npublic class RentAreaEntity {\r\n\tprivate String value;\r\n\r\n\tpublic String getValue() {\r\n\t\treturn value;\r\n\t}\r\n\r\n\tpublic void setValue(String value) {\r\n\t\tthis.value = value;\r\n\t}\r\n\t\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/javaweb/repository/entity/RentAreaEntity.java b/src/main/java/com/javaweb/repository/entity/RentAreaEntity.java
+--- a/src/main/java/com/javaweb/repository/entity/RentAreaEntity.java	(revision a6c6c8e59aac3dded619eb4e587b3ddc31063d01)
++++ b/src/main/java/com/javaweb/repository/entity/RentAreaEntity.java	(date 1740064777164)
+@@ -1,8 +1,47 @@
+ package com.javaweb.repository.entity;
+ 
++import javax.persistence.Column;
++import javax.persistence.Entity;
++import javax.persistence.GeneratedValue;
++import javax.persistence.GenerationType;
++import javax.persistence.Id;
++import javax.persistence.JoinColumn;
++import javax.persistence.ManyToOne;
++import javax.persistence.Table;
++
++@Entity
++@Table(name = "rentarea")
+ public class RentAreaEntity {
++	
++	@Id
++	@GeneratedValue(strategy = GenerationType.IDENTITY)
++	private Long id;
++	
++	@Column(name = "value")
+ 	private String value;
++	
++	@ManyToOne
++	@JoinColumn(name = "buildingid")
++	private BuildingEntity building;
+ 
++	
++	public Long getId() {
++		return id;
++	}
++
++	public void setId(Long id) {
++		this.id = id;
++	}
++
++	public BuildingEntity getBuilding() {
++		return building;
++	}
++
++	public void setBuilding(BuildingEntity building) {
++		this.building = building;
++	}
++
++	
+ 	public String getValue() {
+ 		return value;
+ 	}

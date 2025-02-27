@@ -1,0 +1,95 @@
+Index: src/main/java/com/javaweb/repository/impl/DistricRepositoryImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/javaweb/repository/impl/DistricRepositoryImpl.java b/src/main/java/com/javaweb/repository/impl/DistricRepositoryImpl.java
+deleted file mode 100644
+--- a/src/main/java/com/javaweb/repository/impl/DistricRepositoryImpl.java	(revision 94e80b73a465520bae698b197c8e27ce0d6e0409)
++++ /dev/null	(revision 94e80b73a465520bae698b197c8e27ce0d6e0409)
+@@ -1,36 +0,0 @@
+-package com.javaweb.repository.impl;
+-
+-import java.sql.Connection;
+-
+-import java.sql.ResultSet;
+-import java.sql.SQLException;
+-import java.sql.Statement;
+-
+-import org.springframework.stereotype.Repository;
+-
+-import com.javaweb.repository.entity.DistrictEntity;
+-import com.javaweb.utils.ConectionJDBCUtil;
+-
+-@Repository
+-public class DistricRepositoryImpl implements DistricRepository {
+-	@Override
+-	public DistrictEntity findNameById(Long id) {
+-		String sql = "SELECT d.name FROM  district d WHERE d.id=" + id;
+-		
+-		DistrictEntity districEntity = new DistrictEntity();
+-		
+-		try(Connection conn = ConectionJDBCUtil.getConnection();
+-				Statement stmt = conn.createStatement();
+-				ResultSet rs = stmt.executeQuery(sql);
+-				){
+-			while(rs.next()) {
+-				districEntity.setName(rs.getString("Name"));
+-			}
+-		}catch(SQLException e) {
+-			e.printStackTrace();
+-		}
+-		return districEntity;
+-		
+-	}
+-	
+-}
+Index: target/classes/META-INF/maven/com.javaweb/string-boot/pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n    <groupId>com.javaweb</groupId>\r\n    <artifactId>string-boot</artifactId>\r\n    <version>0.1.0</version>\r\n    <parent>\r\n        <groupId>org.springframework.boot</groupId>\r\n        <artifactId>spring-boot-starter-parent</artifactId>\r\n        <version>2.7.18</version> \r\n    </parent>\r\n    <properties>\r\n        <java.version>17</java.version>\r\n    </properties>\r\n    <dependencies>\r\n        <dependency>\r\n            <groupId>org.springframework.boot</groupId>\r\n            <artifactId>spring-boot-starter-web</artifactId>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>mysql</groupId>\r\n            <artifactId>mysql-connector-java</artifactId>\r\n            <version>8.0.30</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.springframework.boot</groupId>\r\n            <artifactId>spring-boot-starter-actuator</artifactId>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->\r\n\t\t<dependency>\r\n\t\t    <groupId>org.modelmapper</groupId>\r\n\t\t    <artifactId>modelmapper</artifactId>\r\n\t\t    <version>3.2.1</version>\r\n\t\t</dependency>\r\n\r\n    </dependencies>\r\n</project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/classes/META-INF/maven/com.javaweb/string-boot/pom.xml b/target/classes/META-INF/maven/com.javaweb/string-boot/pom.xml
+--- a/target/classes/META-INF/maven/com.javaweb/string-boot/pom.xml	(revision 94e80b73a465520bae698b197c8e27ce0d6e0409)
++++ b/target/classes/META-INF/maven/com.javaweb/string-boot/pom.xml	(date 1740657800756)
+@@ -6,10 +6,10 @@
+     <artifactId>string-boot</artifactId>
+     <version>0.1.0</version>
+     <parent>
+-        <groupId>org.springframework.boot</groupId>
+-        <artifactId>spring-boot-starter-parent</artifactId>
+-        <version>2.7.18</version> 
+-    </parent>
++	    <groupId>org.springframework.boot</groupId>
++	    <artifactId>spring-boot-starter-parent</artifactId>
++	    <version>2.7.17</version>
++	</parent>
+     <properties>
+         <java.version>17</java.version>
+     </properties>
+@@ -27,12 +27,16 @@
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-actuator</artifactId>
+         </dependency>
+-        <!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
+ 		<dependency>
+ 		    <groupId>org.modelmapper</groupId>
+ 		    <artifactId>modelmapper</artifactId>
+ 		    <version>3.2.1</version>
+ 		</dependency>
++		<dependency>
++		    <groupId>org.springframework.boot</groupId>
++		    <artifactId>spring-boot-starter-data-jpa</artifactId>
++		    <version>2.7.17</version>
++		</dependency>
+ 
+     </dependencies>
+-</project>
++</project>  
+\ No newline at end of file
+diff --git a/target/classes/application-uat.properties b/target/classes/application-uat.properties
+new file mode 100644
+diff --git a/target/classes/application-pro.properties b/target/classes/application-pro.properties
+new file mode 100644

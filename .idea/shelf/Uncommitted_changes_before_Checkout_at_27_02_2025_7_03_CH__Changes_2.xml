@@ -1,0 +1,32 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]2" date="1740657817058" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]2/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 27/02/2025 7:03 CH [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/javaweb/repository/impl/RentAreaRepositoryImpl.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/javaweb/repository/impl/DistricRepository.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/repository/entity/UserRoleEntity.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]2/UserRoleEntity.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/repository/entity/UserEntity.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]2/UserEntity.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/javaweb/repository/impl/BuildingRepositoryImpl.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/repository/entity/RoleEntity.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]2/RoleEntity.class" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="target/classes/com/javaweb/model/BuildingRequestDTO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_02_2025_7_03_CH_[Changes]2/BuildingRequestDTO.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/javaweb/repository/impl/DistricRepositoryImpl.class" />
+  </binary>
+</changelist>
