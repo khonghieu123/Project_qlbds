@@ -1,4 +1,4 @@
-package com.javaweb.repository.custom.IMPL;
+package com.javaweb.repository.custom.Impl;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;
@@ -23,9 +23,10 @@ import com.javaweb.utils.NumberUtil;
 import com.javaweb.utils.StringUtil;
 import com.javaweb.builder.BuildingSearchBuilder;
 import com.javaweb.repository.BuildingRepository;
+import com.javaweb.repository.custom.BuildingRepositoryCustom;
 import com.javaweb.repository.entity.BuildingEntity;
 @Repository
-public class JDBCBuildingRepositoryImpl implements BuildingRepository {
+public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
 	
 	@PersistenceContext
 	private EntityManager entityManage;
@@ -117,8 +118,7 @@ public class JDBCBuildingRepositoryImpl implements BuildingRepository {
 	
 	
 	public List<BuildingEntity> findAll(BuildingSearchBuilder buildingSearchBuilder){
-		StringBuilder sql = new StringBuilder("SELECT b.id, b.name, b.districtid, b.street, b.ward,"
-				     + "b.numberofbasement, b.managername, b.managerphonenumber, b.floorarea, b.rentprice, b.servicefee,b.brokeragefee FROM building b ");
+		StringBuilder sql = new StringBuilder("SELECT * From building b  ");
 		StringBuilder where = new StringBuilder(" WHERE 1 = 1 ");
 		joinTable(buildingSearchBuilder, sql);
 		joinQueryNormal(buildingSearchBuilder,where);

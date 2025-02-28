@@ -65,12 +65,12 @@ public class BuildingAPI {
 		return result;
 	}
 	
-//	@GetMapping(value = "/api/building/{name}/{street}")
-//	public BuildingDTO getBuildingById(@PathVariable String name, @PathVariable String street){
-//		BuildingDTO result = new BuildingDTO();
-//		List<BuildingEntity> building = buildingRepository.findByNameContainingAndStreet(name, street);
-//		return result;
-//	}
+	@GetMapping(value = "/api/building/{name}/{street}")
+	public BuildingDTO getBuildingById(@PathVariable String name, @PathVariable String street){
+		BuildingDTO result = new BuildingDTO();
+		List<BuildingEntity> building = buildingRepository.findByNameContainingAndStreet(name, street);
+		return result;
+	}
 	
 	
 //	@DeleteMapping(value ="/api/building/{id}")
@@ -91,23 +91,23 @@ public class BuildingAPI {
 		System.out.print("ok");
 	}
 	
-//	@PutMapping(value ="/api/building/")
-//	public void updateBuilding(@RequestBody BuildingRequestDTO buildingRequestDTO) {
-//		BuildingEntity builEntity = buildingRepository.findById(buildingRequestDTO.getId()).get();
-//		builEntity.setName(buildingRequestDTO.getName());
-//		builEntity.setStreet(buildingRequestDTO.getStreet());
-//		builEntity.setWard(buildingRequestDTO.getWard());
-//		DistrictEntity districEntity = new DistrictEntity();
-//		districEntity.setId(buildingRequestDTO.getDistrictId());
-//		builEntity.setDistrict(districEntity);
-////		entitymanager.merge(builEntity); // update trong database
-//		buildingRepository.save(builEntity);
-////		System.out.print("ok");
-//	}
-//	@DeleteMapping("/api/building/{ids}")
-//	public void deleteBuilding(@PathVariable Long[] ids) {
-//	   buildingRepository.deleteByIdIn(ids);// xóa theo 1 list danh sách
-//	}
+	@PutMapping(value ="/api/building/")
+	public void updateBuilding(@RequestBody BuildingRequestDTO buildingRequestDTO) {
+		BuildingEntity builEntity = buildingRepository.findById(buildingRequestDTO.getId()).get();
+		builEntity.setName(buildingRequestDTO.getName());
+		builEntity.setStreet(buildingRequestDTO.getStreet());
+		builEntity.setWard(buildingRequestDTO.getWard());
+		DistrictEntity districEntity = new DistrictEntity();
+		districEntity.setId(buildingRequestDTO.getDistrictId());
+		builEntity.setDistrict(districEntity);
+		entitymanager.merge(builEntity); // update trong database
+		buildingRepository.save(builEntity);
+		System.out.print("ok");
+	}
+	@DeleteMapping("/api/building/{ids}")
+	public void deleteBuilding(@PathVariable Long[] ids) {
+	   buildingRepository.deleteByIdIn(ids);// xóa theo 1 list danh sách
+	}
 
 
 }

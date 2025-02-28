@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87cca1e8-fd9c-46b5-8b70-4d762ecd8ae7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/converter/BuildingDTOConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/converter/BuildingDTOConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/custom/IMPL/DistricRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/custom/IMPL/DistricRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/custom/IMPL/JDBCBuildingRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/custom/IMPL/JDBCBuildingRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/impl/BuildingRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/impl/DistricRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/DistricRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/impl/DistricRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/impl/RentAreaRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com.javaweb/string-boot/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/maven/com.javaweb/string-boot/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/repository/custom/IMPL/DistricRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/repository/custom/IMPL/JDBCBuildingRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/repository/custom/IMPL/JDBCBuildingRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/repository/impl/BuildingRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/repository/impl/DistricRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/repository/impl/DistricRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/repository/impl/RentAreaRepositoryImpl.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="JPA" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,7 +47,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "JPA",
+    "git-widget-placeholder": "String__data__JPA",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Project_qlbds",
@@ -66,6 +80,8 @@
       <workItem from="1740659747913" duration="173000" />
       <workItem from="1740660418118" duration="39000" />
       <workItem from="1740660629965" duration="321000" />
+      <workItem from="1740735005350" duration="54000" />
+      <workItem from="1740735082111" duration="453000" />
     </task>
     <servers />
   </component>

@@ -4,11 +4,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.ModelMap;
 
 import com.javaweb.model.BuildingDTO;
+import com.javaweb.repository.DistricRepository;
 import com.javaweb.repository.RentAreaRepository;
 import com.javaweb.repository.entity.BuildingEntity;
 import com.javaweb.repository.entity.DistrictEntity;
 import com.javaweb.repository.entity.RentAreaEntity;
-import com.javaweb.repository.impl.DistricRepository;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
