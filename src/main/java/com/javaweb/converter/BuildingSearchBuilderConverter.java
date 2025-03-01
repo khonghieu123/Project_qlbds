@@ -19,13 +19,13 @@ public class BuildingSearchBuilderConverter {
             .setDistrictid(MapUtil.getObject(params, "districtid", String.class))
             .setNumberOfBasement(MapUtil.getObject(params, "numberOfBasement", Integer.class))
             .setTypeCode(typeCode)
-            .setManagerName(MapUtil.getObject(params, "managername", String.class))
-            .setManagerPhoneNumber(MapUtil.getObject(params, "managerphonenumber", String.class))
+            .setManagerName(MapUtil.getObject(params, "managerName", String.class))
+            .setManagerPhoneNumber(MapUtil.getObject(params, "managerPhoneNumber", String.class))
             .setRentPriceTo(MapUtil.getObject(params, "rentPriceTo", Long.class))
             .setRentPriceFrom(MapUtil.getObject(params, "rentPriceFrom", Long.class))
             .setAreaFrom(MapUtil.getObject(params, "areaFrom", Long.class))
             .setAreaTo(MapUtil.getObject(params, "areaTo", Long.class))
-            .setStaffId(MapUtil.getObject(params, "staffid", Long.class))
+            .setStaffId(MapUtil.getObject(params, "staffId", Long.class))
             .build();
     }
 }

@@ -19,6 +19,8 @@ public class BuildingSearchBuilder {
     private Long areaTo;
     private Long staffId;
     
+    public BuildingSearchBuilder() {}
+    
     private BuildingSearchBuilder(Builder builder) { 
     	this.name = builder.name;
     	this.floorArea = builder.floorArea; 

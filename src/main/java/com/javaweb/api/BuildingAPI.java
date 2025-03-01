@@ -35,7 +35,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class BuildingAPI {
 	@Autowired
 	private BuildingService buildingService;
-	@GetMapping(value = "/api/building")
+	@GetMapping(value = "/api/building/")
 	public List<BuildingDTO> getBuilding(@RequestParam Map<String, Object> param,
 			                           @RequestParam(name ="typeCode", required = false) List<String> typeCode){
 		List<BuildingDTO> result = buildingService.findALL(param, typeCode);
