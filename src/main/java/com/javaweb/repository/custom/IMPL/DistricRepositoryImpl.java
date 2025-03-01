@@ -8,8 +8,8 @@ import java.sql.Statement;
 
 import org.springframework.stereotype.Repository;
 
+import com.javaweb.repository.DistricRepository;
 import com.javaweb.repository.entity.DistrictEntity;
-import com.javaweb.repository.impl.DistricRepository;
 import com.javaweb.utils.ConectionJDBCUtil;
 
 @Repository
