@@ -33,12 +33,12 @@ public  class BuildingServiceImpl implements BuildingService{
 		
 		 BuildingSearchBuilder  buildingSearchBuilder =  buildingSearchBuilderConverter.toBuildingSearchBuilder(param, typeCode);
 		
-		BuildingEntity buildingEntityes = buildingRepository.findById(1L).get();
+		List<BuildingEntity> buildingEntityes = buildingRepository.findAll(buildingSearchBuilder);
 		List<BuildingDTO> result = new ArrayList<BuildingDTO>();
-//		for(BuildingEntity item : buildingEntityes) {
-//			BuildingDTO buiding = buildingDTOConverter.toBuildingDTO(item);
-//			result.add(buiding);
-//		}
+		for(BuildingEntity item : buildingEntityes) {
+			BuildingDTO buiding = buildingDTOConverter.toBuildingDTO(item);
+			result.add(buiding);
+		}
 		return result;
 	}
 	

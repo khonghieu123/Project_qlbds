@@ -46,7 +46,7 @@ public class BuildingEntity {
     @Column(name ="servicefee")
     private String serviceFee;
     
-    @Column(name ="rentPrice")
+    @Column(name ="rentprice")
     private Long rentPrice;
     
     @Column(name ="brokeragefee")

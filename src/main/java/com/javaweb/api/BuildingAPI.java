@@ -58,24 +58,18 @@ public class BuildingAPI {
 	@Autowired
 	private BuildingRepository buildingRepository;
 	
-	@GetMapping(value = "/api/building")
+	@GetMapping(value = "/api/building/")
 	public List<BuildingDTO> getBuilding(@RequestParam Map<String, Object> param,
 			                           @RequestParam(name ="typeCode", required = false) List<String> typeCode){
 		List<BuildingDTO> result = buildingService.findAll(param, typeCode);
 		return result;
 	}
 	
-	@GetMapping(value = "/api/building/{name}/{street}")
-	public BuildingDTO getBuildingById(@PathVariable String name, @PathVariable String street){
-		BuildingDTO result = new BuildingDTO();
-		List<BuildingEntity> building = buildingRepository.findByNameContainingAndStreet(name, street);
-		return result;
-	}
-	
-	
-//	@DeleteMapping(value ="/api/building/{id}")
-//	public void deleteBuiling(@PathVariable Integer id) {
-//		System.out.print(data);
+//	@GetMapping(value = "/api/building/{name}/{street}")
+//	public BuildingDTO getBuildingById(@PathVariable String name, @PathVariable String street){
+//		BuildingDTO result = new BuildingDTO();
+//		List<BuildingEntity> building = buildingRepository.findByNameContainingAndStreet(name, street);
+//		return result;
 //	}
 //	
 	@PostMapping(value ="/api/building/")
